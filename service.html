@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inland Security Services - Services</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background-color: #0a0a0a;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: rgba(
+          43,
+          42,
+          42,
+          0.2
+        ) !important; /* Transparent background */
+        backdrop-filter: blur(10px); /* Blur effect */
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Border on scroll */
+      }
+
+      .navbar-brand {
+        color: #ffffff !important;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand img {
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .nav-link {
+        color: #ffffff !important;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #df9e49 !important;
+      }
+
+      .dropdown-menu {
+        background-color: rgba(
+          43,
+          42,
+          42,
+          0.8
+        ) !important; /* Transparent dropdown */
+        backdrop-filter: blur(10px); /* Blur effect */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown-item {
+        color: #ffffff !important;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(76, 175, 80, 0.2); /* Hover effect */
+      }
+
+      /* Hero Section */
+      .hero {
+        color: #ffffff;
+        padding: 20px;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(
+            to bottom,
+            rgba(10, 10, 10, 0.8),
+            rgba(10, 10, 10, 0.8)
+          ),
+          url("./images/services.jpg"); /* Background image */
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInUp 1.5s ease-in-out;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 2s ease-in-out;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 80px 20px;
+        background-color: rgba(48, 48, 48, 0.877); /* Dark background */
+      }
+
+      .services h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #fc9540; /* Green text */
+      }
+
+      .service-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .service-card {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.05
+        ); /* Semi-transparent background */
+        border-radius: 15px;
+        padding: 30px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .service-card.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #fc9540; /* Green text */
+      }
+
+      .service-card p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #ffffff;
+      }
+
+      /* Customer Benefits Section */
+      .benefits {
+        padding: 80px 20px;
+        background-color: rgba(36, 36, 36, 0.877); /* Dark background */
+      }
+
+      .benefits h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #fc9540; /* Green text */
+      }
+
+      .benefit-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .benefit-item {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.05
+        ); /* Semi-transparent background */
+        border-radius: 15px;
+        padding: 30px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .benefit-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .benefit-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .benefit-item i {
+        font-size: 2.5rem;
+        color: #fc9540; /* Green icon */
+        margin-bottom: 20px;
+      }
+
+      .benefit-item h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .benefit-item p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #ffffff;
+      }
+      /* Footer Styles */
+      .footer {
+        background-color: rgba(
+          51,
+          51,
+          51,
+          0.2
+        ) !important; /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Blur effect */
+        color: #ffffff;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: #df9e49; /* Accent color */
+      }
+
+      .footer p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer ul {
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .footer ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer ul li a:hover {
+        color: #df9e49; /* Hover color */
+      }
+
+      .footer .bi {
+        color: #df9e49; /* Icon color */
+      }
+
+      .footer .social-icons a {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .footer .social-icons a:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="./images/logo.png" alt="Inland Security Services Logo" />
+          Inland Security
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li>
+                  <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="service.html">Services</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="partnersDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Our Partners
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
+                <li>
+                  <a class="dropdown-item" href="client.html">Clients</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Our Services</h1>
+        <p>
+          Professional security solutions tailored to your needs. Trust us to
+          protect what matters most.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+          <!-- Static Control Service -->
+          <div class="service-card">
+            <img src="./images/control.jpg" alt="Static Control Service" />
+            <h3>Static Control Service</h3>
+            <p>
+              Our static control service ensures the safety and security of your
+              premises with highly trained personnel.
+            </p>
+          </div>
+          <!-- Cash In Transit -->
+          <div class="service-card">
+            <img src="./images/cash.jpg" alt="Cash In Transit" />
+            <h3>Cash In Transit (C.I.T)</h3>
+            <p>
+              Secure transportation of cash and valuables with our
+              state-of-the-art CIT services.
+            </p>
+          </div>
+          <!-- Private Guards -->
+          <div class="service-card">
+            <img src="./images/private.jpg" alt="Private Guards" />
+            <h3>Private Guards</h3>
+            <p>
+              Professional private guards for personalized security solutions.
+            </p>
+          </div>
+          <!-- Service Arms Control -->
+          <div class="service-card">
+            <img src="./images/arm.jpg" alt="Service Arms Control" />
+            <h3>Service Arms Control</h3>
+            <p>
+              Comprehensive arms control services to ensure safety and
+              compliance.
+            </p>
+          </div>
+          <!-- Dog Control Service -->
+          <div class="service-card">
+            <img src="./images/dog.jpg" alt="Dog Control Service" />
+            <h3>Dog Control Service</h3>
+            <p>
+              Highly trained security dogs for enhanced protection and
+              surveillance.
+            </p>
+          </div>
+          <!-- Consultants and Safety Training -->
+          <div class="service-card">
+            <img
+              src="./images/training.jpeg"
+              alt="Consultants and Safety Training"
+            />
+            <h3>Consultants and Safety Training</h3>
+            <p>
+              Expert consultants and training programs to enhance your security
+              protocols.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Benefits Section -->
+    <section class="benefits">
+      <div class="container">
+        <h2>Customer Benefits</h2>
+        <div class="benefit-items">
+          <!-- Benefit 1 -->
+          <div class="benefit-item">
+            <i class="bi bi-shield-check"></i>
+            <h4>Security Survey & Recommendations</h4>
+            <p>
+              We conduct thorough security surveys and provide actionable
+              recommendations.
+            </p>
+          </div>
+          <!-- Benefit 2 -->
+          <div class="benefit-item">
+            <i class="bi bi-file-earmark-text"></i>
+            <h4>Crystallizing Standing Order And Special Instructions</h4>
+            <p>Clear and concise standing orders tailored to your needs.</p>
+          </div>
+          <!-- Benefit 3 -->
+          <div class="benefit-item">
+            <i class="bi bi-person-walking"></i>
+            <h4>Supervision By Patrolling Officers</h4>
+            <p>24/7 supervision by our highly trained patrolling officers.</p>
+          </div>
+          <!-- Benefit 4 -->
+          <div class="benefit-item">
+            <i class="bi bi-graph-up"></i>
+            <h4>Monthly Review Of Performance And Reports</h4>
+            <p>Regular performance reviews and detailed incident reports.</p>
+          </div>
+          <!-- Benefit 5 -->
+          <div class="benefit-item">
+            <i class="bi bi-person"></i>
+            <h4>Minimum Acquaintance With Employees Of Customers</h4>
+            <p>Minimal interaction with your employees for added security.</p>
+          </div>
+          <!-- Benefit 6 -->
+          <div class="benefit-item">
+            <i class="bi bi-shield-lock"></i>
+            <h4>Full Insurance Coverage</h4>
+            <p>Comprehensive insurance coverage for peace of mind.</p>
+          </div>
+          <!-- Benefit 7 -->
+          <div class="benefit-item">
+            <i class="bi bi-cash-coin"></i>
+            <h4>Substantial Saving In Costs</h4>
+            <p>Tailored solutions to meet individual budgets.</p>
+          </div>
+          <!-- Benefit 8 -->
+          <div class="benefit-item">
+            <i class="bi bi-people"></i>
+            <h4>Temporary Manpower Increase</h4>
+            <p>Able to increase manpower on a temporary basis as needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer text-center text-lg-start">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5>INLAND SECURITY SERVICES</h5>
+            <p class="mt-3">
+              Protecting your assets with cutting-edge technology and highly
+              trained professionals.
+            </p>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i>
+                <a href="mailto:info@inlandsecurity.com"
+                  >info@inlandsecurity.com</a
+                >
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i>
+                <a href="tel:+1-800-123-4567">+1-800-123-4567</a>
+              </li>
+              <li>
+                <i class="bi bi-geo-alt me-2"></i>
+                123 Security Lane, Safe City, SC 12345, USA
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5>Follow Us</h5>
+            <ul
+              class="list-unstyled d-flex justify-content-center justify-content-lg-start"
+            >
+              <li class="me-3">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  class="text-white"
+                >
+                  <i class="bi bi-facebook" style="font-size: 1.5rem"></i>
+                </a>
+              </li>
+              <li class="me-3">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  class="text-white"
+                >
+                  <i class="bi bi-twitter" style="font-size: 1.5rem"></i>
+                </a>
+              </li>
+              <li class="me-3">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  class="text-white"
+                >
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  class="text-white"
+                >
+                  <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12 text-center">
+            <p class="mb-0">
+              &copy; 2023 Inland Security Services. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      const serviceCards = document.querySelectorAll(".service-card");
+      const benefitItems = document.querySelectorAll(".benefit-item");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      serviceCards.forEach((card) => {
+        observer.observe(card);
+      });
+
+      benefitItems.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
